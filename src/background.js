@@ -114,8 +114,8 @@ process.on('unhandledRejection', error => {
 function createTray() {
 
   tray = new Tray(trayIcon);
-  tray.setToolTip('Video Downloader.')
-  tray.setTitle('Video Downloader.')
+  tray.setToolTip('时光韩剧')
+  tray.setTitle('时光韩剧.追剧必备')
   
   tray.on("click", () => {
     hideApp();
@@ -123,20 +123,20 @@ function createTray() {
 
   var contextMenu = Menu.buildFromTemplate([
     {
-      label: "Show downloader",
+      label: "显示主界面",
       click: function() {
         win.show();
       }
     },
     {
-      label: "Quit",
+      label: "退出",
       click: function() {
         closeApp();
       }
     }
   ]);
 
-  tray.setToolTip("Video downloader");
+  tray.setToolTip("时光韩剧");
   tray.setContextMenu(contextMenu);
 }
 
@@ -204,7 +204,7 @@ function closeApp() {
 function hideApp() {
   if ( win.isVisible() ) {
     win.hide()
-    tray.displayBalloon({title:'Video Downloader.', content: 'Video Downloader.'});
+    tray.displayBalloon({title:'时光韩剧.', content: '时光韩剧,追剧必备'});
   } else {
     win.show();
   }
@@ -242,7 +242,7 @@ ipcMain.on("yt-search", function(event, search) {
 });
 
 ipcMain.on('downloaded', function(event, title) {
-  tray.displayBalloon({title:'Video Downloader.', content: 'Video downloaded: ' + title});
+  tray.displayBalloon({title:'时光韩剧', content: '时光韩剧: ' + title});
 });
 
 ipcMain.on('history-get', function(event) {

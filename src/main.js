@@ -2,7 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import VueYouTubeEmbed from 'vue-youtube-embed'
+// import VueYouTubeEmbed from 'vue-youtube-embed'
 // Import component
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
@@ -15,7 +15,7 @@ Vue.use(prototypes)
 
 Vue.use(VueFlashMessage);
 
-Vue.use(VueYouTubeEmbed)     
+// Vue.use(VueYouTubeEmbed)     
 Vue.use(Loading)     
 
 

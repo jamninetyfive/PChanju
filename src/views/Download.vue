@@ -1,11 +1,11 @@
 <template>
-  <div class="bg-black text-white flex-1 ml-56 pl-6">
-    <headerapp title="Download"></headerapp>
+  <div class="bg-hanju text-white flex-1 ml-56 pl-6">
+    <headerapp title="下载"></headerapp>
     <div class="flex-1 text-left mb-3">
       <label class="font-light mr-3">YouTube address:</label>
       <div class="w-full flex search-container text-center relative">      
         <input ref="url" type="text" @keyup.enter="addVideoPlayList( $refs.url.value )" placeholder="https://www.youtube.com" 
-          class="bg-black text-grey-light w-full h-9 pl-8 border-b outline-none">
+          class="bg-hanju text-grey-light w-full h-9 pl-8 border-b outline-none">
         <div class="absolute pin-t py-2 px-1 text-grey-light">
           <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="18" height="18">
             <path class="heroicon-ui" d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"></path>

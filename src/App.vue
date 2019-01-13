@@ -1,8 +1,8 @@
 <template>
-  <div id="app" style="-webkit-user-select: none" class="font-sans flex-1 min-h-screen bg-black">        
+  <div id="app" style="-webkit-user-select: none" class="font-sans flex-1 min-h-screen bg-hanju">        
     <sidebar></sidebar>    
     <flash-message class="message"></flash-message>
-    <keep-alive :include="['download','search']">
+    <keep-alive :include="['download','search','detail']">
       <router-view/>
     </keep-alive>
   </div>
@@ -12,6 +12,8 @@
   import Sidebar from "./components/Sidebar.vue";
   import 'animate.css/animate.css';
   import Vue from "vue";
+  import VueBarousel from 'vue-barousel'
+  Vue.use(VueBarousel)
 
   const bus = new Vue();
 

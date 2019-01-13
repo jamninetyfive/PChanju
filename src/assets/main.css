@@ -11,50 +11,114 @@
  */
 
 
- @tailwind preflight;
-
+ html, body, h1, h2, h3, h4, h5, h6, hr, li, ul, p, a, img, button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    /* font-family: "Pingfang SC", "Open Sans", "Lantinghei SC", "Microsoft Yahei Light", "Microsoft Yahei", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; */
+    font-weight: 200;
+    list-style: none;
+  }
  .message {
   position: fixed;
   right: 0;
   top: 15%;
+  z-index: 2;
 }
-
+.w-70{
+  width:17.5rem
+}
+.text-gray{
+  color:#808080
+}
+.bg-play{
+  background-color:#CA9ECE
+}
+.bg-download{
+  background-color:#B6D7B3
+}
+.bg-search-item{
+  background-color: #93A9BD;
+  cursor: pointer
+}
+.search-input{
+  width: 250px;
+  height: 42px;
+  padding-left: 15px;
+  border-radius: 42px;
+  background: #F9F0DA;
+  border: 1px solid #FECEDC;
+  outline: none;
+  color:#928BA9;
+  transition: .3s linear;
+}
+.search-input:focus {
+  width: 300px;
+}
+.bg-gray-darker{
+  background-color: #f9f9f9
+}
 .router-link-exact-active {
-  @apply bg-grey-darker;
+  font-weight: bold;
+  background-color: #f9f9f9
 }
-
+.bg-hanju{
+  background-color: #fff;
+}
 .clickable {
     -webkit-app-region: no-drag;
   }
-
+.bg-sidebar{
+  background-color: #928BA9;
+}
 .border-backblack {
   border-color: black;
 }
 
 ::-webkit-scrollbar {
-  background-color: #2B2B2B;
-  border-left: 1px solid #3E3E3E;
+  background-color: #D1CCC6;
+  border-left: 1px solid #93A9BD;
   width: .65rem;
 }
 
 ::-webkit-scrollbar-thumb {
-  background:  #6B6B6B;
+  background:  #928BA9;
   border-radius: 10px;
 }
 
 .discover-banner{
-  background: url("./title.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 110px;
+  background: linear-gradient(to top right, #CA9ECE, #FDB8A1, #D1CCC6);
+  background: -webkit-linear-gradient(left bottom, #CA9ECE, #FDB8A1, #D1CCC6);
+  animation: ani-hue 10s infinite linear;
+  -webkit-animation: ani-hue 10s infinite linear;
+  max-height: 40px;
 }
 
 .button-window {
   height: 22px;
   width: 22px;
 }
-
-
+.vbanner{
+  display: block;
+  width: 100%;
+  height:100%;
+}
+@-webkit-keyframes ani-hue {
+  from {
+    -webkit-filter: hue-rotate(0);
+  }
+  to {
+    -webkit-filter: hue-rotate(-360deg);
+  }
+}
+@keyframes ani-hue {
+  from {
+    filter: hue-rotate(0);
+  }
+  to {
+    filter: hue-rotate(-360deg);
+  }
+}
 
 /* CHECKBOX TOGGLE SWITCH */
 .form-switch {
@@ -69,7 +133,7 @@
   transition: background-color 0.2s ease-in;
 }
 .form-switch-label:before {
-  @apply absolute block bg-white pin-y w-6 border rounded-full -ml-1;
+  @apply absolute block bg-hanju pin-y w-6 border rounded-full -ml-1;
   
   right: 50%;
   content: "";

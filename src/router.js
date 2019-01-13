@@ -1,8 +1,9 @@
 import Vue from "vue";
 import Router from "vue-router";
+import HomeView from "./views/Home.vue"
 import SearchView from "./views/Search.vue";
 import Download from "./views/Download.vue";
-
+import DeatilView from "./views/Detail.vue"
 Vue.use(Router);
 
 export default new Router({
@@ -11,6 +12,11 @@ export default new Router({
   routes: [
     {
       path: "/",
+      name: "home",
+      component: HomeView
+    },
+    {
+      path: "/search",
       name: "search",
       component: SearchView
     },
@@ -40,6 +46,12 @@ export default new Router({
       name: "player",
       props: true,
       component: () => import(/* webpackChunkName: "player" */ "./views/Player.vue")
-    }   
+    },
+    {
+      path: "/detail",
+      name: "detail",
+      props: true,
+      component: DeatilView
+    },
   ]
 });
