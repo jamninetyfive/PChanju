@@ -1,5 +1,4 @@
 # Video Downloader #
-![](doc/download_1.PNG)
 
 ## Download application ##
 
