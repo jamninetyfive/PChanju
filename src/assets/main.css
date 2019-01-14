@@ -74,7 +74,10 @@
 .border-backblack {
   border-color: black;
 }
-
+.dplayer-logo{
+  left: 0;
+  right: 20px!important;
+}
 ::-webkit-scrollbar {
   background-color: #D1CCC6;
   border-left: 1px solid #93A9BD;

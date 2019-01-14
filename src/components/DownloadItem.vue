@@ -63,12 +63,8 @@
   
   import Loading from 'vue-loading-overlay';
   import 'vue-loading-overlay/dist/vue-loading.css';
-  import Utils from '../common/Utils';
-  import { ipcRenderer } from "electron";
-
-  const ytdl = require('ytdl-core');
-  var video;
-  var writer;
+  // import Utils from '../common/Utils';
+  // import { ipcRenderer } from "electron";
 
   export default {
     name: "download-item",
@@ -89,90 +85,50 @@
     },
     mounted() {
       this.isLoading = true;
-      ytdl.getInfo(this.url, (err, info) => {
-          this.isLoading = false;
-          if (err) 
-            throw err;
-
-          this.thumbnailUrl = info.thumbnail_url;
-          this.title = info.title;          
-          this.author = info.author.name;     
-            
-          if (this.autoDownload) {
-            this.download();
-          }  
-      });
     },
 
     methods: {      
-      play() {
-        this.$emit('playVideo',  this.url, this.title);   
+      // play() {
+      //   this.$emit('playVideo',  this.url, this.title);   
                 
-      },
+      // },
       
-      del() {
-        this.cancel();
-        this.$emit('deleteItem',  this.itemId);               
-      },
+      // del() {
+      //   this.cancel();
+      //   this.$emit('deleteItem',  this.itemId);               
+      // },
 
-      cancel() {
-        if ( video !== undefined ) {
-          video.unpipe(writer);
-          video.destroy();       
-        }
-        this.progress = 0;      
-        this.isDownloading = false;  
-      },
+      // cancel() {
+      //   if ( video !== undefined ) {
+      //     video.unpipe(writer);
+      //     video.destroy();       
+      //   }
+      //   this.progress = 0;      
+      //   this.isDownloading = false;  
+      // },
 
-      download() {
-        const path = require('path');
-        const fs   = require('fs');
-        const self = this;
+      // download() {
+      //   const path = require('path');
+      //   const fs   = require('fs');
+      //   const self = this;
 
-        const output = path.resolve(
-                this.destinanionFolder.toString().replace('\\','\\\\'), 
-                Utils.slugify(this.title.toString()) + '.mp4'
-        );
+      //   const output = path.resolve(
+      //           this.destinanionFolder.toString().replace('\\','\\\\'), 
+      //           Utils.slugify(this.title.toString()) + '.mp4'
+      //   );
 
-        ytdl.getInfo(this.url, (err, info) => {
-          if (err) 
-            throw err;
+      // },
 
-          video = ytdl.downloadFromInfo(info,{ 
-            filter: (format) => 
-              format.container === 'mp4'
-          });
-          
-          writer = fs.createWriteStream(output);
-          video.pipe(writer);
-          
-          this.isDownloading = true;
-          
-          video.on('progress', (chunkLength, downloaded, total) => {
-            this.size = ((total /1000000).toFixed(0)).toString() +" MB";
-            const percent = downloaded / total;
-            this.progress = (percent * 100).toFixed(0);
-          });
-          
-          video.on('end', () => {
-            this.isDownloading = false;
-            this.addHistory(this.url, this.title, this.thumbnailUrl);
-            ipcRenderer.send("downloaded", this.title);  
-            self.$emit('deleteItem',  this.itemId);         
-          });
-        });   
-      },
-
-      addHistory( url, title, thumbnailUrl ){
+      // addHistory( url, title, thumbnailUrl ){
       
-        const hist = {  
-          videoUrl: url,
-          imgUrl:thumbnailUrl,
-          title,
-          dateExec: new Date()
-        };
-        ipcRenderer.send("history-add", hist);                  
-      }
+      //   const hist = {  
+      //     videoUrl: url,
+      //     imgUrl:thumbnailUrl,
+      //     title,
+      //     dateExec: new Date()
+      //   };
+      //   ipcRenderer.send("history-add", hist);                  
+      // }
     }
     
   }

@@ -18,8 +18,6 @@
   const bus = new Vue();
 
   window.onerror = function (errorMsg, url) {
-    //console.log(errorMsg);
-    //console.log(url);
     bus.$emit("onError", errorMsg, url );
     return true;
   }

@@ -61,13 +61,13 @@
             screenshot: true,
             hotkey: true,
             preload: 'auto',
-            logo: 'logo.png',
+            // logo: '../assets/logo.png',
             volume: 0.7,
             mutex: true,
             video: {
                 url: this.url.split(',')[0].split('$')[2],
                 // pic: 'dplayer.png',
-                thumbnails: 'thumbnails.jpg',
+                // thumbnails: 'thumbnails.jpg',
                 type: 'auto'
             },
         });
@@ -89,9 +89,9 @@
       back(){
         this.$router.go(-1)
       },
-      // destroyed() {
-      //   this.dp.destroy()
-      // },
+      destroyed() {
+        this.dp.destroy()
+      },
     }
   }
 </script>

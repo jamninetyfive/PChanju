@@ -2,15 +2,16 @@
   "name": "video-downloader",
   "version": "0.1.0",
   "private": true,
-  "icon": "assets/favicon.ico",
+  "description": "## Project setup ``` npm install ```",
+  "author": "",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "start": ".\\node_modules\\electron\\dist\\electron.exe .",
     "electron:build": "vue-cli-service electron:build",
     "electron:serve": "vue-cli-service electron:serve",
-    "postinstall": "electron-builder install-app-deps"
+    "postinstall": "electron-builder install-app-deps",
+    "start": ".\\node_modules\\electron\\dist\\electron.exe ."
   },
   "dependencies": {
     "@smartweb/vue-flash-message": "^0.4.1",
@@ -19,48 +20,41 @@
     "cheerio": "^1.0.0-rc.2",
     "dplayer": "^1.25.0",
     "electron-unhandled": "^2.1.0",
-    "flyio": "^0.6.9",
-    "hls.js": "^0.12.2",
     "lokijs": "^1.5.6",
-    "vue": "^2.5.17",
+    "vue": "^2.5.22",
     "vue-barousel": "^1.0.3",
     "vue-flash-message": "^0.7.2",
     "vue-loading-overlay": "^3.1.1",
     "vue-router": "^3.0.1",
-    "vue-youtube-embed": "^2.2.1",
     "vuex": "^3.0.1",
-    "vuex-electron": "^1.0.2",
-    "yt-search": "^0.4.1",
-    "ytdl-core": "^0.28.3",
-    "ytpl": "^0.1.14"
+    "vuex-electron": "^1.0.2"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.2.0",
-    "@vue/cli-plugin-eslint": "^3.2.0",
-    "@vue/cli-service": "^3.2.0",
-    "@vue/eslint-config-prettier": "^4.0.0",
+    "@vue/cli-plugin-babel": "^3.3.0",
+    "@vue/cli-plugin-eslint": "^3.3.0",
+    "@vue/cli-service": "^3.3.0",
+    "@vue/eslint-config-prettier": "^4.0.1",
     "babel-eslint": "^10.0.1",
-    "electron": "^2.0.0",
+    "electron": "^4.0.1",
     "electron-builder": "^20.38.4",
     "electron-debug": "^2.0.0",
     "electron-rebuild": "^1.8.2",
-    "eslint": "^5.8.0",
-    "eslint-plugin-vue": "^5.0.0-0",
+    "eslint": "^5.12.0",
+    "eslint-plugin-vue": "^5.1.0",
     "tailwindcss": "^0.7.3",
-    "vue-cli-plugin-electron-builder": "^1.0.0-rc.9",
-    "vue-template-compiler": "^2.5.17"
+    "vue-cli-plugin-electron-builder": "^1.0.0-rc.10",
+    "vue-template-compiler": "^2.5.22"
   },
-  "main": "background.js",
-  "description": "## Project setup ``` npm install ```",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/robertorlowski/video-downloader.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/robertorlowski/video-downloader/issues"
   },
-  "homepage": "https://github.com/robertorlowski/video-downloader#readme"
+  "homepage": "https://github.com/robertorlowski/video-downloader#readme",
+  "icon": "assets/favicon.ico",
+  "keywords": [],
+  "license": "ISC",
+  "main": "background.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robertorlowski/video-downloader.git"
+  }
 }

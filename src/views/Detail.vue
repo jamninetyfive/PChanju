@@ -76,7 +76,7 @@ export default {
   },
   beforeRouteEnter(to, from, next) {
     next(vm => {
-        if(from.name=='home'){
+        if(from.name=='home'||from.name=='search'){
             // 通过 `vm` 访问组件实例
             vm.getMovieDetailInfo(vm.id)
         }

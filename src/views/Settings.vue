@@ -1,7 +1,7 @@
 <template>
   <div class="bg-hanju text-white flex-1 ml-56 pl-6">
     <headerapp title="设置"></headerapp>
-    <div class="flex-1 text-left">
+    <!-- <div class="flex-1 text-left">
        <label class="font-light mr-3">搜索:</label>
       <div class="w-full flex search-container text-center relative">      
         <input ref="search" type="text"  v-model="destFolder" class="bg-hanju text-grey-light w-full h-9 pl-8 border-b outline-none">
@@ -30,7 +30,7 @@
             </svg>
             <span class="ml-1 mb-2 items-center align-text-top">清除观看历史</span>
       </button>      
-    </div>
+    </div> -->
   </div>
 </template>
 

@@ -8,13 +8,17 @@ module.exports = {
           })
         },        
         builderOptions: {
-            appId: "pl.lt.videodownloader",
-            productName : "Video Downloader",
-            copyright: "Copyright © 2018 Robert Orłowski",
+            appId: "pl.lt.pchanju",
+            productName : "时光韩剧",
+            copyright: "Copyright © 2018 Jam Sou",
             win : {
-              icon : "public/assets/app.png",
-              publisherName :"Robert Orłowski"
-            }
+              icon : "public/assets/logo.png",
+              publisherName :"Jam Sou"
+            },
+            // mac : {
+            //   icon : "public/assets/logo.png",
+            //   publisherName :"Jam Sou"
+            // }
         }
       }
     }

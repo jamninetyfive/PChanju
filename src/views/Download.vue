@@ -1,8 +1,8 @@
 <template>
   <div class="bg-hanju text-white flex-1 ml-56 pl-6">
-    <headerapp title="下载"></headerapp>
-    <div class="flex-1 text-left mb-3">
-      <label class="font-light mr-3">YouTube address:</label>
+    <headerapp title="片库"></headerapp>
+    <!-- <div class="flex-1 text-left mb-3">
+      <label class="font-light mr-3">播放地址:</label>
       <div class="w-full flex search-container text-center relative">      
         <input ref="url" type="text" @keyup.enter="addVideoPlayList( $refs.url.value )" placeholder="https://www.youtube.com" 
           class="bg-hanju text-grey-light w-full h-9 pl-8 border-b outline-none">
@@ -18,17 +18,15 @@
         </button>         
       </div>
     </div>
-    <div ref="downloadItems" class="flex flex-wrap pr-6">                
-    </div>
+    <div ref="downloadItems" class="flex flex-wrap pr-6">                 -->
+    <!-- </div> -->
   </div>
 </template>
 
 <script>
 import headerapp from '../components/Title.vue';
-import DownloadItem from '../components/DownloadItem.vue';
-import Vue from "vue";
-import { getIdFromURL } from 'vue-youtube-embed'
-import ytpl from "ytpl";
+// import DownloadItem from '../components/DownloadItem.vue';
+// import Vue from "vue";
 
 export default {
   name: "download",
@@ -41,77 +39,10 @@ export default {
     }
   },
  mounted() {
-    this.$appData.videoIds.forEach(element => {
-      this.prepareVideo(element); 
-    });
 
-    this.$eventBus.$on("onAddVideo", (url) => {
-      console.log(url);
-      this.prepareVideo(url); 
-    });
   },
   methods: {
-    story(url) {
-      this.$router.push({
-        name: 'download-item',
-        params: { url }
-      })
-    },
 
-    addVideoPlayList(url){
-      const tmp = this;
-      ytpl(url, function(err, playlist) {
-        if(err) {
-          tmp.addVideo(url)      
-        } else {
-          playlist.items.forEach(item => {
-            tmp.addVideo(item.url);      
-          });          
-        }
-      });
-    },
-
-    addVideo(url){
-      this.$eventBus.$emit("onAddVideo", url);             
-    },
-    
-    prepareVideo(url){
-      this.itemCount++;
-      const itemId = 'DOWNLOAD_ITEM-' + this.itemCount;
-
-      var DownloadItemClass = Vue.extend(DownloadItem);
-      var instance = new DownloadItemClass({
-          propsData: { 
-            url: url, 
-            itemId: itemId,
-            destinanionFolder: this.$store.getters.destinanionFolder,
-            autoDownload: this.$store.getters.autoDownload
-          }
-      });      
-      instance.$mount() // pass nothing
-      instance.$el.id = itemId;
-     
-      this.$refs.downloadItems.appendChild(instance.$el)
-      instance.ref = getIdFromURL(url);
-      instance.$on('deleteItem', (itemId) => {
-        const itemElement = document.getElementById(itemId);
-        if ( itemElement === undefined) {
-          return;
-        }
-        //this.$store.dispatch("removeVideo", url);
-        this.$eventBus.$emit("onRemoveVideo", url);
-        this.$refs.downloadItems.removeChild(itemElement);
-      });
-      
-      instance.$on('playVideo', (url, title) => {
-        this.$router.push({
-          name: 'player',
-          params: { url: url, title: title, router: "download" }
-        });     
-      });
-
-      this.$refs.url.value = "";
-    }
   }
 };
 </script>

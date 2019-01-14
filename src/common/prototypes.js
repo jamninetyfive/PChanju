@@ -8,7 +8,6 @@ const bus = new Vue({
 
 bus.$on("onAddVideo", (url) => {
   bus.videoIds.push(url);
-  console.log(url);
 });
 
 bus.$on("onRemoveVideo", (videoId) => {
